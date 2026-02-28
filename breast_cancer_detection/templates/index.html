@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection - ML System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🔬 Breast Cancer Detection System</h1>
+                <p>Machine Learning Based Diagnosis Support Tool</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dataset Info -->
+            <section class="section dataset-info">
+                <h2>📊 Dataset Information</h2>
+                <div id="datasetInfo" class="info-grid">
+                    <div class="info-card">
+                        <span class="label">Total Samples</span>
+                        <span class="value" id="totalSamples">Loading...</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="label">Features</span>
+                        <span class="value" id="totalFeatures">Loading...</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="label">Benign Cases</span>
+                        <span class="value" id="benignCases">Loading...</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="label">Malignant Cases</span>
+                        <span class="value" id="malignantCases">Loading...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Model Results -->
+            <section class="section model-results">
+                <h2>🤖 Model Performance Comparison</h2>
+                <div id="resultsTable" class="table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Accuracy</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F1-Score</th>
+                                <th>ROC-AUC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Loading model results...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="bestModelContainer" class="best-model-card">
+                    <h3>⭐ Best Performing Model</h3>
+                    <div id="bestModelInfo"></div>
+                </div>
+            </section>
+
+            <!-- Prediction Section -->
+            <section class="section prediction">
+                <h2>🔮 Make Predictions</h2>
+                <div class="prediction-form">
+                    <div class="form-group">
+                        <label for="modelSelect">Select Model:</label>
+                        <select id="modelSelect">
+                            <option value="">Loading models...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sampleData">Input Features (comma-separated values):</label>
+                        <textarea id="sampleData" placeholder="Enter 30 feature values separated by commas..." rows="4"></textarea>
+                        <small>Note: You need to input 30 feature values in the same order as the dataset</small>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="makePrediction()">Make Prediction</button>
+                </div>
+
+                <div id="predictionResult" class="prediction-result" style="display: none;">
+                    <h3>Prediction Result</h3>
+                    <div class="result-content">
+                        <div class="prediction-badge" id="predictionBadge"></div>
+                        <div class="result-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Prediction:</span>
+                                <span class="metric-value" id="resultPrediction"></span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Confidence:</span>
+                                <span class="metric-value" id="resultConfidence"></span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Malignant Probability:</span>
+                                <span class="metric-value" id="resultMalignant"></span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Benign Probability:</span>
+                                <span class="metric-value" id="resultBenign"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sample Data -->
+            <section class="section sample-data">
+                <h2>📋 Sample Test Data</h2>
+                <p>Use one of these sample feature vectors to test the model:</p>
+                <div class="sample-buttons">
+                    <button class="btn btn-secondary" onclick="loadSampleData('benign')">Load Sample (Benign)</button>
+                    <button class="btn btn-secondary" onclick="loadSampleData('malignant')">Load Sample (Malignant)</button>
+                </div>
+                <pre id="sampleDisplay"></pre>
+            </section>
+
+            <!-- Info Section -->
+            <section class="section info">
+                <h2>ℹ️ About This System</h2>
+                <div class="info-content">
+                    <h3>Models Implemented:</h3>
+                    <ul>
+                        <li><strong>Logistic Regression</strong> - Fast baseline model</li>
+                        <li><strong>Random Forest</strong> - Ensemble tree-based approach</li>
+                        <li><strong>Gradient Boosting</strong> - Advanced ensemble method</li>
+                        <li><strong>Support Vector Machine</strong> - Non-linear classifier</li>
+                    </ul>
+
+                    <h3>Dataset:</h3>
+                    <p>Wisconsin Breast Cancer Dataset containing 30 features computed from digitized images of fine needle aspirate (FNA) of breast masses.</p>
+
+                    <h3>Disclaimer:</h3>
+                    <p style="color: #d32f2f; font-weight: bold;">
+                        ⚠️ This system is for educational and research purposes only. It should NOT be used as a substitute for professional medical diagnosis. Always consult with qualified medical professionals for actual cancer detection and treatment.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Breast Cancer Detection Project | Machine Learning System</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

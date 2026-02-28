@@ -1,0 +1,354 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header-content p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px;
+}
+
+.section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h2 {
+    font-size: 1.8em;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+/* Dataset Info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #667eea;
+}
+
+.info-card .label {
+    display: block;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.info-card .value {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Tables */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.results-table th {
+    background: #667eea;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.results-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.results-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.results-table tbody tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+/* Best Model Card */
+.best-model-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.best-model-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.best-model-card .metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Forms */
+.prediction-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.sample-buttons {
+    margin-bottom: 20px;
+}
+
+/* Prediction Result */
+.prediction-result {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.prediction-result h3 {
+    margin-bottom: 20px;
+}
+
+.result-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.prediction-badge {
+    font-size: 3em;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    min-width: 150px;
+}
+
+.result-metrics {
+    display: grid;
+    gap: 12px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.metric-label {
+    font-weight: 600;
+}
+
+.metric-value {
+    font-weight: bold;
+}
+
+/* Info Section */
+.info-content h3 {
+    color: #667eea;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.info-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.info-content li {
+    margin-bottom: 8px;
+}
+
+.info-content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Sample Data */
+#sampleDisplay {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+/* Footer */
+.footer {
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 1.8em;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-content {
+        grid-template-columns: 1fr;
+    }
+
+    .prediction-badge {
+        min-width: auto;
+    }
+}
+
+/* Loading and Error States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c33;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.success {
+    background: #efe;
+    border: 1px solid #cfc;
+    color: #3c3;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
